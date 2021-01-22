@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calulator</title>
+</head>
+<style>
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-image: linear-gradient(to top, blue, green), url("engin-akyurt-po6SeO89eCM-unsplash.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+.container
+{
+    width: 30%;
+    background-color: #545a63;
+    border: 1px solid white;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px blue;
+    top:2%;
+}
+.container input
+{
+    width: 100%;
+    padding: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #545a63;
+    text-align: right;
+    font-size: 18px;
+}
+.btn input
+{
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    margin: 6px;
+    text-align: center;
+    cursor: pointer;
+    left: 3%;
+    background-size: cover;
+    box-shadow: 1px 3px 5px blue;
+    font-size: 15px;
+}
+@media only screen and (max-width:800px) {
+    .container, .btn{
+      width:100%;
+      height: 100%;
+    }
+  }
+</style>
+<body>
+    <div class="container">
+        <input type="text" id="result" name="result">
+        <div class="btn">
+            <input type="button" value="C" onclick="clr('C')">
+            <input type="button" value="%" onclick="dis('%')">
+            <input type="button" value="⌫" onclick="Back_space('&#9224;')">
+            <input type="button" value="/" onclick="dis('/')">
+            <br>
+            <input type="button" value="7" onclick="dis('7')">
+		    <input type="button" value="8" onclick="dis('8')">
+		    <input type="button" value="9" onclick="dis('9')">
+		    <input type="button" value="X" onclick="dis('*')">
+            <br>
+            <input type="button" value="4" onclick="dis('4')">
+            <input type="button" value="5" onclick="dis('5')">
+            <input type="button" value="6" onclick="dis('6')">
+            <input type="button" value="-" onclick="dis('-')">
+            <br>
+            <input type="button" value="1" onclick="dis('1')">
+            <input type="button" value="2" onclick="dis('2')">
+            <input type="button" value="3" onclick="dis('3')">
+            <input type="button" value="+" onclick="dis('+')">
+            <br>
+            <input type="button" value="00" onclick="dis('0')">
+            <input type="button" value="0" onclick="dis('0')">
+            <input type="button" value="." onclick="dis('.')">
+            <input type="button" value="=" onclick="Solve('=')">
+        </div>
+    </div>
+    <script>
+        function dis(val)
+		{
+            document.getElementById("result").value+=val;
+		}
+        function Solve(val)
+        {
+	        var x=document.getElementById("result").value;
+	        var y=eval(x);
+            document.getElementById("result").value=y;
+        }
+        function clr()
+        {
+            document.getElementById('result').value="";
+        }
+        function Back_space()
+        {
+            var value = document.getElementById('result').value;
+            document.getElementById('result').value = value.substr(0, value.length - 1);
+        }
+    </script>
+</body>
+</html>
